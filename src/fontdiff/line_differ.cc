@@ -59,6 +59,7 @@ LineDiffer::LineDiffer(const Line* before, const Line* after) {
       cairo_image_surface_create(CAIRO_FORMAT_A1,
                                  (width_ * scale_) / render_scale_,
                                  (height_ * scale_) / render_scale_);
+
   afterSurface_ =
       cairo_image_surface_create(CAIRO_FORMAT_A1,
                                  (width_ * scale_) / render_scale_,
@@ -66,6 +67,7 @@ LineDiffer::LineDiffer(const Line* before, const Line* after) {
 
   cairo_t* beforeGC = cairo_create(beforeSurface_);
   cairo_scale(beforeGC, scale_, scale_);
+  
   before->Render(beforeGC, 0, 0);
   cairo_surface_flush(beforeSurface_);
   cairo_destroy(beforeGC);

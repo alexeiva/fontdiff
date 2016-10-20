@@ -42,7 +42,9 @@ class Line {
 
   void AddShapedText(const ShapedText* text, int32_t start, int32_t limit);
   void SetBackgroundColor(uint32_t rgb) { backgroundColor_ = rgb; }
+  //void SetTextColor(uint32_t rgba) { textColor_ = rgba; }
   void AddHighlight(FT_F26Dot6 x, FT_F26Dot6 width, uint32_t color);
+  void AddGray(cairo_t* gc, uint32_t color);
 
  private:
   struct Run {

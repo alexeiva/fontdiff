@@ -53,6 +53,13 @@ void Line::AddHighlight(FT_F26Dot6 x, FT_F26Dot6 width, uint32_t color) {
   highlights_.push_back(h);
 }
 
+void Line::AddGray(cairo_t* gc, uint32_t color) {
+    //SetTextColor(gc, textColor_);
+    cairo_set_source_rgba (gc, 0, 0, 0, 0.20);
+    cairo_fill(gc);
+}
+
+
 void Line::Render(cairo_t* gc, FT_F26Dot6 x, FT_F26Dot6 y) const {
   for (const Run& run : runs_) {
     run.text->Render(run.start, run.limit, gc,

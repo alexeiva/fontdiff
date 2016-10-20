@@ -212,6 +212,8 @@ void ShapedText::Render(int32_t start, int32_t limit, cairo_t* gc,
   const double size = style_->GetFontSize();
   cairo_set_font_face(gc, font_->GetCairoFace(weight, width, size));
   cairo_set_font_size(gc, size);
+  //addition works if defined here
+  //cairo_set_source_rgba (gc, 0, 0.5, 0.5, 0.90);
   if (cairoClusters.size() > 0) {
     cairo_show_text_glyphs(gc, utf8.c_str(), utf8.size(),
 			   &cairoGlyphs.front(), cairoGlyphs.size(),
